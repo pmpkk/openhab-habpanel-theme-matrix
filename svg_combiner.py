@@ -69,7 +69,7 @@ for file in onlyfiles:
 		print "Processing file: " + file
 
 		r = requests.get('http://127.0.0.1:8080/static/matrix-theme/original-svgs/' + file)
-		#print len(r.text)
+		print len(r.status_code)
 		if(len(r.text)>0):
 			xml = ET.fromstring(r.text)
 			for child in xml:
