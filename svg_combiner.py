@@ -82,6 +82,8 @@ for file in onlyfiles:
 						top.append(child)
 						symbol_count = symbol_count + 1
 						print " --> added " + child.attrib['id']
+		else:
+			print "Error processing file: HTTP Response " + str(r.status_code)
 
 f = open('/etc/openhab2/html/matrix-theme/squidink.svg', 'w')
 f.write(ET.tostring(top,encoding='utf8', method='xml'))
