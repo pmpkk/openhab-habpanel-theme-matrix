@@ -118,6 +118,10 @@ body {
     /* For mobile: */
     .section {
     }
+    .section .hueSelect {
+      max-width: 100%;
+      padding-right: 15px;
+    }
 	.section .widget {
 		width: 100%;
 		float: left;
@@ -139,6 +143,10 @@ body {
     /* For tablet: */
     .section {
     }
+    .section .hueSelect {
+      width: 50%;
+      padding-right: 70px;
+    }    
 	.section .widget {
 		width: 50%;
 		float: left;
@@ -160,6 +168,11 @@ body {
     /* For desktop: */
     .section {
     }
+    .section .hueSelect {
+      width: 33%;
+      padding-right: 70px;
+    }
+
 	.section .widget {
 		width: 33%;
 		float: left;
@@ -299,6 +312,10 @@ body {
     padding-top: 7px;
     color: #aaa;
     font-weight: 300;
+}
+
+.section .widget {
+  cursor: pointer;
 }
 .section .widget .icon {
 	width: 30px;
@@ -449,7 +466,7 @@ body {
     color: #ff2c0a;
     font-weight: 600;
 }
-.section .widget .valueGroup .value:nth-child(2) {
+.section .widget .valueGroup .value:nth-child(n+2) {
 	color: #1d4d3b;	
 }
 .section .controls {
@@ -472,6 +489,9 @@ body {
   height: 40px; 
   float: right;
   border-radius: 100%;
+  text-align: center;
+  color: #26bf75;
+  line-height: 41px;
 }
 .section .control.on {
   background-color: #4a6b52;
@@ -657,7 +677,7 @@ body {
     float: right;
 }
 .section .controls .music .playbackTime {
-  width: 20%;
+  width: 22%;
     display: inline-block;
     text-align: center;
     /* border: 1px solid red; */
@@ -670,7 +690,7 @@ body {
     height: 100%;
 }
 .section .controls .music .playbackBar {
-    width: 60%;
+    width: 52%;
     display: inline-block;
     background: #565f58;
     height: 2px;
@@ -682,4 +702,41 @@ body {
   margin-left: auto;
     width: 150px;
     padding: 0px 10px 50px 0px;
+}
+
+.section .widget .name .hue {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 7px;
+    border-radius: 100%;
+}
+
+
+.section .hueSelect {
+    position: absolute;
+    height: 0px;
+}
+.section .hueSelect a {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 15px 0px 0px 20px;
+    border-radius: 100%;
+    border: 1px solid rgba(255,255,255,0);
+}
+.section .hueSelect a:hover, .section .hueSelect a:active {
+  border: 1px solid white;
+  -webkit-transition: 0.2s;
+ 
+}
+.section .hueSelectOptions {
+    position: relative;
+    top: 7px;
+    padding: 5px 25px 15px 10px;
+    background: #2a332e;
+    border-radius: 0px 0px 15px 15px;
+    left: 0;
+    left: -1px;
+    border-top: 1px solid #5f7167;
 }
