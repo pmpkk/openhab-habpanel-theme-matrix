@@ -492,6 +492,7 @@ body {
   text-align: center;
   color: #26bf75;
   line-height: 41px;
+  font-weight: bold;  
 }
 .section .control.on {
   background-color: #4a6b52;
