@@ -67,4 +67,7 @@
 	<path stroke="none" d="M44.4,17.2c0-3.4-2.8-6.2-6.2-6.2h-29C5.8,11,3,13.8,3,17.2v16.6C3,37.2,5.8,40,9.2,40h29
 		c3.4,0,6.2-2.8,6.2-6.2V17.2z M19.6,33.6V18l11.8,7.8L19.6,33.6z"/>
 </symbol>
+<symbol id="cross-line">
+		<line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="42" y1="6" x2="6.5" y2="41.5"/>
+</symbol>
 </svg>
