@@ -218,6 +218,14 @@ body {
 	text-transform: uppercase;
 	padding-bottom: 20px;
 }
+.section .sub-title {
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #26bf75;
+    clear: both;
+}
 .section .title .name {
 	font-size: 30px;
 	font-weight: 100;
@@ -303,6 +311,47 @@ body {
 	text-align: center;
     clear: left;	
 }
+.section .bigDash .trend {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    top: 40px;
+    left: -26px;
+} 
+
+.section .bigDash .trend svg {
+    stroke: #565f58;
+    stroke-width: 2px;
+}
+.section .bigDash .trend.up svg {
+    stroke: #26bf75;
+    animation: upy 0.2s ease-in-out infinite alternate;
+}
+.section .bigDash .trend.down svg {
+    stroke: #ff2c0a;
+    animation: downy 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes upy {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    100% {
+        transform: translate(0px, 5px);
+    }
+}
+@keyframes downy {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    100% {
+        transform: translate(0px, -5px);
+    }
+}
+
+
+
 .graph img {
 	border-bottom: 1px solid #565f58;
 }
@@ -370,6 +419,13 @@ body {
     }
 }
 
+.section .widget select {
+    background: rgba(0,0,0,0);
+    border: 0px;
+    outline: none;
+    text-align: right;
+    text-align-last: right;
+}
 
 .section .widget.disabled {
   opacity: 0.2;
@@ -442,7 +498,7 @@ body {
 .section .widget .sceneGroup .scene {
     border: 1px solid #565f58;
     border-radius: 5px;
-    padding: 6px 20px 6px 20px;
+    padding: 6px 6px 6px 6px;
     text-align: center;
     margin-bottom: 8px;
     width: 133px;
@@ -452,9 +508,15 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.section .widget .sceneGroup .scene.on {
+  background-color: #393d3a;
+  border: 1px solid #393d3a;
+  color: #26bf75;
+}
 
 .section .widget .valueGroup {
 	padding-right: 20px;
+  min-height: 35px;  
 }
 .section .widget .valueGroup .value {
 	text-align: right;
@@ -465,6 +527,9 @@ body {
 .section .widget .valueGroup .value.warning {
     color: #ff2c0a;
     font-weight: 600;
+}
+.section .widget .valueGroup .value.active {
+    color: #00afb8;
 }
 .section .widget .valueGroup .value:nth-child(n+2) {
 	color: #1d4d3b;	
@@ -517,18 +582,26 @@ body {
 
 .section .bigDash .main {
 	font-size: 95px;
-	letter-spacing: -4px;
+	letter-spacing: 0px;
 	line-height: 110px;
 	float:left;
 	color: white;
 	
 }
+.section .bigDash .decimals {
+  font-size: 60px;
+  letter-spacing: 0px;
+  line-height: 0px;
+  float: left;
+  color: #575f59;
+  padding-top: 65px;
+}
 .section .bigDash .sub {
 	font-size: 45px;
-	color: #393d3a;
+	color: #575f59;
 	display:inline;
 	text-align: left;
-	margin-left: -15px;
+	margin-left: -40px;
 }
 
 
