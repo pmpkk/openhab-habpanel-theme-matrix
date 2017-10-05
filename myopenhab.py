@@ -143,9 +143,12 @@ class openhab(object):
         """
 
         try:
-            sql = 'SELECT FIRST(*) FROM "' + item + '" where time>\'' + datetime + '\''
+            sql = 'SELECT FIRST(*) FROM "' + item + 's" where time>\'' + datetime + '\''
             data = self.queryInflux(sql)
-            return getJSONValue(data,['results',0,'series',0,'values',0,1])
+            value = getJSONValue(data,['results',0,'series',0,'values',0,1])
+            if (value == None):
+                print "No results returned from InfluxDB History: \033[0;31m" + str(data) + "\033[0m"
+            return value
         except:
             print "Error getting data from InfluxDB: \033[0;31m" + str(sql) + " (" + str(sys.exc_info()[1]) + ")\033[0m"
 

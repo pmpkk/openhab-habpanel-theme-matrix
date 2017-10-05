@@ -50,6 +50,7 @@ class shaddow(object):
         for h in xrange(0,24,HOURS):
             t = datetime.combine(date.today(), datetime.min.time()) + timedelta(hours=-utc_offset+h-24)
        	    a = self.oh.getStateHistoryFromInflux('Sun_Azimuth',t.strftime('%Y-%m-%dT%H:%M:%S') + 'Z')
+       	    if (a == None): a = 0
        	    DEGS.extend([a])
 
     def generatePath(self,stroke,fill,points,attrs=None):
@@ -69,24 +70,27 @@ class shaddow(object):
 
     def generateArc(self,dist,stroke,start,end,attrs=None):
 
-		angle = end-start
-		if (angle<0):
-			angle = 360 + angle
-
 		p = ''
-		p = p + '<path d="M' + str(self.degreesToPoint(start,dist)['x']) + ' ' + str(self.degreesToPoint(start,dist)['y']) + ' '
-		p = p + 'A' + str(dist) + ' ' + str(dist) + ' 0 '
-		if (angle<180):
-			p = p + '0 1 '
-		else:
-			p = p + '1 1 '
-		p = p + str(self.degreesToPoint(end,dist)['x']) + ' ' + str(self.degreesToPoint(end,dist)['y']) + '"'
-		p = p + ' stroke="' + stroke + '"'
-		if (attrs != None): 
-			p = p + ' ' + attrs + ' '
-		else:
-			p = p + ' stroke-width="' + STROKE_WIDTH + '" fill="none" '
-		p = p + ' />'
+		try:
+			angle = end-start
+			if (angle<0):
+				angle = 360 + angle
+
+			p = p + '<path d="M' + str(self.degreesToPoint(start,dist)['x']) + ' ' + str(self.degreesToPoint(start,dist)['y']) + ' '
+			p = p + 'A' + str(dist) + ' ' + str(dist) + ' 0 '
+			if (angle<180):
+				p = p + '0 1 '
+			else:
+				p = p + '1 1 '
+			p = p + str(self.degreesToPoint(end,dist)['x']) + ' ' + str(self.degreesToPoint(end,dist)['y']) + '"'
+			p = p + ' stroke="' + stroke + '"'
+			if (attrs != None): 
+				p = p + ' ' + attrs + ' '
+			else:
+				p = p + ' stroke-width="' + STROKE_WIDTH + '" fill="none" '
+			p = p + ' />'
+		except:
+			p = ''
 
 		return p	
 
