@@ -143,7 +143,7 @@ class openhab(object):
         """
 
         try:
-            sql = 'SELECT FIRST(*) FROM "' + item + 's" where time>\'' + datetime + '\''
+            sql = 'SELECT FIRST(*) FROM "' + item + '" where time>\'' + datetime + '\''
             data = self.queryInflux(sql)
             value = getJSONValue(data,['results',0,'series',0,'values',0,1])
             if (value == None):
